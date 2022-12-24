@@ -2674,3 +2674,43 @@ label.calculator__button:focus-within h3{
 .calculator__button input[type="radio"]{
     opacity: 0;
 }
+
+
+.staycourier__wrap .courier__wrap .btn-primary{
+    width: 210px;
+    height: 60px;
+    color: #00194A;
+    font-weight: 900;
+    background: transparent;
+    border: 2px solid #FFBF00;
+border-radius: 80px;
+}
+
+.staycourier__wrap .courier__wrap .btn-primary:hover{
+    background: #FFBF00;
+}
+
+
+.staycourier__wrap .courier__wrap .btn-primary::before{
+    content: "";
+    position: absolute;
+    bottom: -68px;
+    left: 239px;
+    width: 27%;
+    height: 100px;
+    background: url(../img/png/Vector29.png) no-repeat;
+}
+
+.staycourier__wrap .courier__wrap .btn-primary::after{
+    content: "Стань частью команды";
+    position: absolute;
+    bottom: -100px;
+    left: 300px;
+    color: #cacaca;
+    font-weight: 400;
+    width: 30%;
+    transition: all 0.5s ease;
+}
+.staycourier__wrap .courier__wrap .btn-primary:hover::after, .staycourier__wrap .courier__wrap .btn-primary:hover::before{
+   color: #00194A;
+}
