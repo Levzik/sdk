@@ -263,11 +263,7 @@
                             </h2>
 
 
-                            <div class="main__buttonwrap">
-                                <a href="#" class="main__button col-xl-5 col-lg-5">
-                                    Получить 500₽
-                                </a>
-                            </div>
+
 
 
                             <!-- <div class="main__buttonwrap">
@@ -317,8 +313,70 @@
                         </div>
                     </div>
                 </div>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalVote-main">
+                    Получить 500₽
+                  </button>
+                  <div class="modal fade btn-courier-one" id="modalVote-main" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="mp">
+                                <p>Приветственный бонус для всех новых <br>партнеров!</p>
+
+                            </div>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        </div>
+                        <div class="modal-bodywrap">
+                            <div class="modal-body">
+                                <div class="modal-conditions">
+                                    <h5>Несколько простых условий*:</h5>
+                                    <p>- Успешно пройти собеседование и заключи договор</p>
+                                    <p>- Заверши первую 8-часовую смену</p>
+                                        <p>- Получи бонус на свой баланс</p>
+                                        <p>Запишись на собеседование прямо сейчас и получи
+                                            бонус 500 руб. за успешное прохождение!**</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 request__description">
+                                                            
+                                <form method="get">
+                                    <input type="tel" placeholder="Ваш телефон">
+                                    <button class="request__send">
+                                        Отправить заявку
+                                    </button>
+                                    <div class="request__radio">
+                                        <div class="radio__wrap">
+                                            <input type="checkbox" class="check-top" id="checkbox-id">
+                                        </div>
+                                        <label for="checkbox-id" class="request__checkbox offset-1">Согласен с правилами обработки
+                                            персональных данных
+                                        </label>
+                                    </div>
+
+
+
+                                    <div class="request__radio">
+                                        <div class="radio__wrap df">
+                                            <input type="checkbox" class="check-top" id="checkbox-id">
+                                        </div>
+                                        <label for="checkbox-id" class="request__checkbox offset-1">**Согласен с правилами проведения акции</label>                                        </label>
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         </section>
+        
+
+
         <section class="getcourier" id="getcourier">
             <div class="container">
                 <!--getcourier-->
@@ -452,6 +510,7 @@
                 </div>
             </div>
         </section>
+        
         <section class="staycourier">
             <div class="container">
                 <div class="staycourier__wrap">
