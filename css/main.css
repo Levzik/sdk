@@ -108,8 +108,7 @@ input[type="text"]:checked {
     border-radius: 10px;
     background: #fff;
 }
-header {
-}
+
 
 button {
     background: bottom;
@@ -624,8 +623,7 @@ input[type="checkbox"]:checked::before {
     z-index: 11;
 }
 
-.mobile-menu__infowrap .navigation__lang:hover::before {
-}
+
 
 .mobile-menu__infowrap .navigation__lang:hover::before {
     width: 0;
@@ -744,11 +742,9 @@ input[type="checkbox"]:checked::before {
     margin-top: 140px;
 }
 
-.justify-content-between {
-}
 
-.calculator__line {
-}
+
+
 .calculator__linetext {
     font-weight: 400;
     font-size: 18px;
@@ -763,8 +759,7 @@ input[type="checkbox"]:checked::before {
     width: 100%;
     height: 37px;
 }
-.calculator__variantswrap {
-}
+
 .calculator__variantstext {
     font-weight: 900;
     font-size: 24px;
@@ -785,6 +780,7 @@ input[type="checkbox"]:checked::before {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .calculator__button p {
@@ -798,20 +794,21 @@ input[type="checkbox"]:checked::before {
 
 .calculator__choicewrap {
     margin-top: 59px;
+
 }
 .calculator__choice {
     width: 168px;
     height: 60px;
     border: 2px solid #b3b3b3;
     border-radius: 80px;
+    
 }
 
 .calculator__choice p {
     font-weight: 700;
     font-size: 18px;
 }
-.calculator__choicetext {
-}
+
 .calculator__information {
     margin-top: 28px;
 }
@@ -828,7 +825,6 @@ input[type="checkbox"]:checked::before {
     font-weight: 700;
     font-size: 40px;
     letter-spacing: 0.05em;
-    margin-top: 114px;
 
     color: #ffbf00;
 }
@@ -864,10 +860,13 @@ input[type="checkbox"]:checked::before {
 }
 
 .calculator__stripblue {
-    width: 20%;
     height: 37px;
     background: #4e8df2;
     border-radius: 114px;
+}
+
+#stripblue{
+    transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .option {
@@ -1141,8 +1140,7 @@ ul.slick-dots li:hover::before {
     border-radius: 50%;
 }
 
-.slick-dots .slick-active {
-}
+
 
 .slick-prev:hover,
 .slick-next:hover {
@@ -1198,7 +1196,7 @@ ul.slick-dots li:hover::before {
     position: absolute;
 }
 
-.questions .courier__textyellow-color {
+.quest .courier__textyellow-color {
     margin-top: 13px;
 }
 
@@ -1346,7 +1344,7 @@ ul.slick-dots li:hover::before {
     text-align: right;
 }
 
-.questions {
+.quest {
     padding-bottom: 135px;
 }
 
@@ -1401,8 +1399,7 @@ ul.slick-dots li:hover::before {
     display: none;
 }
 
-.navigation__list {
-}
+
 
 .navigation__list a {
     position: relative;
@@ -1810,6 +1807,14 @@ border: 0 !important;
     left: -100%;
 }
 
+.footer__social .footer__network > a:hover path {
+    fill: #00194a;;
+    transition: all 0.5s ease;
+}
+
+.footer__social .footer__network > a path {
+    transition: all 0.5s ease;
+}
 .request__backbluetwo{
     content: "";
     background: url(../img/png/Maskgroup.png) 0 0 repeat;
@@ -2542,7 +2547,7 @@ button, input {
 } */
 
 .mp{
-    margin-left: 206px;
+    margin-left: 220px;
     margin-top: 10px;
 }
 
@@ -2636,9 +2641,20 @@ flex-wrap: wrap;
     top: 209px;
 }
 
-
+.calculator__button:hover{
+    background: #387ff2;
+    color: #fff;
+    transition: 0.5s ease;
+}
 
 label.calculator__button:focus-within{
+    background: #387ff2;
+    color: #fff;
+
+
+}
+
+label.calculator__button:focus{
     background: #387ff2;
     color: #fff;
 
@@ -2779,8 +2795,236 @@ border-radius: 80px;
 color: #00194A;
 font-weight: 900;
 border: 0;
+border: 2px solid #fff;
+
+}
+
+.section-main .btn-primary:hover{
+    border: 2px solid #fff;
+    text-decoration: none;
+    background: transparent;
+    transition: 0.5s ease;
+    color: #fff;
 }
 
 .navigation__tabs {
     padding-top: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* QUIZ */
+
+.calculator__choice-backyellow:disabled{
+    background: grey;
+    color: #fff;
+}
+
+button:hover:disabled{
+    background: grey;
+    color: #fff;
+}
+
+
+.quiz-results-item{
+    margin-top: 114px;
+}
+
+.btn-next{
+    pointer-events: none;
+    cursor: default;
+}
+
+
+.btn-next{
+    pointer-events: none;
+    cursor: default;
+}
+
+
+.btn-next {
+    pointer-events: none;
+    cursor: default;
+}
+
+.calculator__choice-backgray{
+    pointer-events: all;
+    cursor: default;
+    transition: all 0.5s ease;
+}
+
+
+.calculator__choice-backyellow{
+    pointer-events: all;
+    cursor: default;
+    transition: all 0.5s ease;
+}
+
+.questions--hidden,
+.indicator--hidden,
+.btn-next--hidden{
+    display: none;
+}
+
+
+.results--visible,
+.btn-restart--visible{
+    display: block;
+}
+
+
+
+
+#answer--none{
+    display: none;
+}
+.answer--valid{
+    color: red;
+     display: inline-block !important;
+}
+
+.answer--invalid{
+    
+    color: rgb(255, 191, 0);
+        display: inline-block !important;
+}
+
+.calculator__choice{
+    display: block;
+}
+
+
+
+.questions--visible,
+.indicator--visible,
+.btn-next--visible{
+display: block;
+}
+
+.indicator--visible{
+    display: block !important;
+}
+
+.results--hidden,
+.btn-restart--hidden{
+display: none;
+}
+
+
+.btn-next--hidden{
+display: none !important;
+}
+
+
+
+
+
+.calculator__choice-backgray{
+    pointer-events: all;
+    cursor: default;
+    transition: all 0.5s ease;
+    background: #ffbf00;
+    border: 0;
+    color: #00194a;
+}
+
+.calculator__choice-backgray:hover{
+    background: #387ff2;
+    color: #fff;
+    transition: 0.5s ease;
+}
+
+.calculator__choice-backgray:disabled {
+    background: grey;
+    color: #fff;
+    pointer-events: all;
+    cursor: default;
+}
+
+.btn-restart:disabled{
+    pointer-events: none;
+    cursor: default;
+}
+
+#btn-restart{
+cursor: pointer;
+
+}
+
+#btn-next{
+    cursor: pointer;
+    
+    }
+
+.quiz-questions-item__answers ul{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 35px;
+    flex-wrap: wrap;
+
+
+}
+
+.calculator__button:target{
+    background: #387ff2;
+    color: #fff;
+    transition: 0.5s ease;
+
+
+}
+#summa p span  { 
+    display: none !important;
+ }
+
+ #summa p{
+    font-weight: 700;
+    font-size: 40px;
+ }
+
+ #summa p:not(:last-child){
+    display: none;
+
+ }
+
+ #summa p:last-child{
+    display: inline-block !important;
+ }
+
+.greentxt{
+    color: #151;
+    background: #151;
+}
+
+#results-wrapping > .quiz-results:not(:first-child){
+    display: none;
+}
+
+
+.calculator__linetext .quiz-indicator{
+    display: inline-block !important;
+}
+
+.calculator__information .quiz-indicator{
+    display: none;
+}
+
+.btn-restart--center{
+justify-content: center !important;
+display: flex !important;
+}
+
+
+.staycourier .staycourier__right .btn-primary:hover{
+    color: #fff;
 }
