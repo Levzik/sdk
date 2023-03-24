@@ -281,13 +281,15 @@
     #quiz > .quiz-results .calculator__description {
         position: absolute;
         width: 95%;
-        margin-top: 185px;
     }
 
     .quiz-results-item .calculator__price {
         position: absolute;
         width: 100%;
-        margin-top: 95px;
+    }
+
+    .quiz-results-item .quiz-results-item__answers {
+        position: relative;
     }
 
     .logo-mobile {
@@ -676,10 +678,6 @@
         margin-top: 15px;
     }
 
-    .calculator__choicewrap {
-        margin-top: 28px;
-    }
-
     .calculator__price {
         margin-top: 18px;
     }
@@ -745,6 +743,16 @@
     }
     .courierindent {
         margin-bottom: 0px;
+    }
+
+    .calculator__choicewrap {
+        margin-top: 28px !important;
+    }
+    .calculator__price {
+        top: 94px !important;
+    }
+    .calculator__description {
+        margin-top: 185px !important;
     }
 }
 
@@ -994,7 +1002,10 @@
     }
 
     .quiz-questions-item__answers {
-        margin-top: 123px;
+        margin-top: 157px;
+    }
+    .quiz-questions-item .calculator__variantstext {
+        line-height: 19px;
     }
 }
 

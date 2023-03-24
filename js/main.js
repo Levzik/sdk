@@ -1,3 +1,6 @@
+// alert( document.cookie );
+
+
 $(document).ready(function(){
     $("#phone_1").mask("+7(999) 999-99-99");
     $("#phone_2").mask("+7(999) 999-99-99");
@@ -226,6 +229,7 @@ let DATA = [
         // Здесь надо умножать прошлое число на 2 и на 3 из прошлого числа которое получилось
         question: 'Выбери график, в котором ты готов выполнять заказы',
         answers: [
+
             {
                 id: "6",
                 value: "Свободный",
@@ -234,17 +238,17 @@ let DATA = [
             {
                 id: "7",
                 value: "5/2",
-                figure: 13055,
+                figure: 0,
             },
             {
                 id: "8",
                 value: "6/1",
-                figure: 9935,
+                figure: 0,
             },
             {
                 id: "9",
                 value: "2/2",
-                figure: 18345,
+                figure: 0,
             },
         ]
     },
@@ -290,6 +294,20 @@ const ansNone = document.getElementById("answer--none");
 const inva = document.getElementsByClassName("answer--invalid");
 
 
+const calculatorPrice = document.querySelector('.calculator__price');
+const calculatorDescription = document.querySelector('.calculator__description');
+const calculatorChoicewrap = document.querySelector('.calculator__choicewrap');
+var style = document.createElement('style');
+
+
+
+
+// Select the calculator__price element
+
+const fontElement = calculatorPrice.querySelector('font[style="vertical-align: inherit;"]');
+if (fontElement) {
+  fontElement.remove();
+}
 
 
 window.onload = function() {
@@ -468,6 +486,10 @@ function progress (){
 
 // Конечный итог
 
+
+
+
+
 quiz.addEventListener("click", (event) => {
     const ansNone = document.getElementById("answer--none");
 
@@ -484,6 +506,16 @@ quiz.addEventListener("click", (event) => {
             
             stripblue.style.width = "100%";
             // btnRestartCenter.classList.add("btn-restart--center");
+
+
+            style.innerHTML = '.calculator__choicewrap { justify-content: center !important; }' + 
+            '@media (max-width: 992px) { ' +
+              '.calculator__choicewrap { margin-top: 154px !important;} ' +
+              '.calculator__price { top: 0 !important; } ' +
+              '.calculator__description { margin-top: 85px !important; } ' +
+            '}';
+
+            document.head.appendChild(style);
 
 
             questions.classList.add("questions--hidden");
@@ -528,7 +560,11 @@ quiz.addEventListener("click", (event) => {
         results.classList.remove("results--visible");
         btnNext.classList.remove("btn-next--hidden");
         btnRestart.classList.remove("btn-restart--visible");
-        
+
+        btnRestart.disabled = true;
+        btnNext.disabled = true;
+        style.innerHTML = '';
+
         renderQuestions(0);
         renderResults();
         progress();
@@ -608,8 +644,9 @@ const renderResults = () => {
 
 renderResults
 
-
+// скопировать for и переделать его с number -1
 let totalNumber = 0;
+let previousTotal = 0;
     for (let i = 0; i < inva.length; i++) {
 
             let contentIn = inva[i].innerHTML;
@@ -621,11 +658,29 @@ let totalNumber = 0;
     }
 
     console.log(totalNumber);
+    const inputElementSeven = document.querySelector('input[value="7"]');
+    const inputElementEight = document.querySelector('input[value="8"]');
 
 const getAnswers = (questionIndex) => DATA[questionIndex].answers
         // .map((answer) => `<span id= "answer--none" class=${getClassname(answer, questionIndex)}>${renderResults.totalNumber}</span>`)
         // .map((answer) => `<span id= "answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}${totalNumber}</span>`)
-        .map((answer) => `<p><span id= "answer--none" class= ${getClassname(answer, questionIndex)}>${answer.figure} </span>${totalNumber}</p>`)
+        // .map((answer) => `<p><span id= "answer--none" class= ${getClassname(answer, questionIndex)}>${answer.figure} </span>${totalNumber}</p>`)
+        .map((answer) => {
+            if (inputElementSeven && inputElementSeven.checked) {
+                const result = previousTotal * 2;
+      previousTotal = totalNumber;
+      totalNumber = result;
+              return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${result}</p>`;
+            } else if (inputElementEight && inputElementEight.checked){
+                return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${totalNumber * 3}</p>`;
+
+            } else {
+              return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${totalNumber}</p>`;
+            }
+          })
+
+
+
         .join ("");
         
 
