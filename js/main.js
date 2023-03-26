@@ -450,8 +450,9 @@ function progress (){
             }
 
                 
+            console.log(stripblue);
+            console.log(perce.innerHTML);
 
-        console.log(stripblue);
 
             
 }
@@ -657,7 +658,74 @@ let previousTotal = 0;
         
     }
 
+
+
+    // if(perce.innerHTML == "50%"){
+    //     let totalNumberBefore = totalNumber;
+    //     console.log(totalNumberBefore);
+
+    // }
+    // console.log(totalNumberBefore);
+
+
+    // let totalNumberWhenPerceIs50;
+
+    // if (perce.innerHTML === "50%") {
+    //   totalNumberWhenPerceIs50 = totalNumber;
+    // }
+    
+    // console.log(totalNumberWhenPerceIs50);
+
+    
+    // let globalTotalNumberWhenPerceIs50;
+
+    // if (perce.innerHTML === "50%") {
+    //   globalTotalNumberWhenPerceIs50 = totalNumber;
+    // }
+    
+    // console.log(globalTotalNumberWhenPerceIs50);
+
+
+
+//     let globalTotalNumberWhenPerceIs50;
+
+// function calculateGlobalTotalNumberWhenPerceIs50() {
+//   if (perce.innerHTML === "50%") {
+//     globalTotalNumberWhenPerceIs50 = totalNumber;
+//   }
+// }
+// console.log(globalTotalNumberWhenPerceIs50);
+
+
+
+let myNumber;
+if (perce.innerHTML === "50%") {
+    myNumber = totalNumber;
+    globalTotalNumberWhenPerceIs50 = myNumber;
+}
+console.log(myNumber);
+
+
+
+// let globalTotalNumberWhenPerceIs50;
+
+// function myFunction() {
+//     let myNumber;
+//     if (perce.innerHTML === "50%") {
+//         myNumber = totalNumber;
+//         globalTotalNumberWhenPerceIs50 = myNumber;
+//     }
+// }
+
+// myFunction();
+// console.log(globalTotalNumberWhenPerceIs50);
+
+
+
+
+
     console.log(totalNumber);
+
     const inputElementSeven = document.querySelector('input[value="7"]');
     const inputElementEight = document.querySelector('input[value="8"]');
 
@@ -668,8 +736,9 @@ const getAnswers = (questionIndex) => DATA[questionIndex].answers
         .map((answer) => {
             if (inputElementSeven && inputElementSeven.checked) {
                 const result = previousTotal * 2;
-      previousTotal = totalNumber;
-      totalNumber = result;
+
+                previousTotal = totalNumber;
+                totalNumber = result;
               return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${result}</p>`;
             } else if (inputElementEight && inputElementEight.checked){
                 return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${totalNumber * 3}</p>`;
