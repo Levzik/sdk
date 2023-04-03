@@ -823,7 +823,7 @@ input[type="checkbox"]:checked::before {
 }
 .calculator__price {
     font-weight: 700;
-    font-size: 40px;
+
     letter-spacing: 0.05em;
 
     color: #ffbf00;
@@ -3045,4 +3045,20 @@ display: flex !important;
 
 .staycourier .staycourier__right .btn-primary:hover{
     color: #fff;
+}
+
+
+.right::before{
+    content: "+2000 руб за каждого привлеченного курьера";
+    position: absolute;
+    top: 135px;
+
+}
+
+.right-hide{
+    display: none;
+}
+
+.right-block{
+    display: block;
 }

@@ -814,6 +814,11 @@
     .staycourier__list li:nth-child(2):before {
         left: 382px;
     }
+
+    .calculator__variantstext {
+        line-height: 19px;
+        font-size: 19px;
+    }
 }
 
 @media screen and (max-width: 505px) {

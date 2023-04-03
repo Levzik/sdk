@@ -55,7 +55,6 @@ $(document).ready(function(){
    
 
 
-    
 
 
 
@@ -120,6 +119,7 @@ $(document).ready(function(){
         }, 800);
     });
 
+    
 
   });
 
@@ -216,11 +216,15 @@ let DATA = [
                 id: "8",
                 value: "8 часов",
                 figure: 9935,
+                // figure: 11615,
+
             },
             {
                 id: "9",
                 value: "12 часов",
-                figure: 18345,
+                figure: 20025,
+                // figure: 18345,
+
             },
         ]
     },
@@ -231,32 +235,73 @@ let DATA = [
         answers: [
 
             {
-                id: "6",
+                id: "10",
                 value: "Свободный",
                 figure: 0,
             },
             {
-                id: "7",
+                id: "11",
                 value: "5/2",
-                figure: 0,
+                figure: 20,
             },
             {
-                id: "8",
+                id: "12",
                 value: "6/1",
-                figure: 0,
+                figure: 20,
             },
             {
-                id: "9",
+                id: "13",
                 value: "2/2",
-                figure: 0,
+                figure: 1120,
             },
         ]
     },
 
 
+    {
+        // Здесь надо умножать прошлое число на 2 и на 3 из прошлого числа которое получилось
+        question: 'Готов ли ты привлекать друзей и знакомых на работу курьером?',
+        answers: [
+
+            {
+                id: "14",
+                value: "Да",
+                figure: 0,
+            },
+            {
+                id: "15",
+                value: "Нет",
+                figure: 0,
+            },
+
+        ]
+    },
+    {
+        // Здесь надо умножать прошлое число на 2 и на 3 из прошлого числа которое получилось
+        question: 'За каждого пришедшего по рекомендации курьера заплатим + 2 000 руб. Подробные условия можно узнать у вашего менеджера',
+        answers: [
+
+            {
+                id: "16",
+                value: "Да",
+                figure: 2000,
+            },
+            {
+                id: "17",
+                value: "Нет",
+                figure: 0,
+            },
+
+        ]
+    },
 
 ];
 
+
+
+// const fig = DATA.answers.find(item => item.id === "11").figure = 10;
+
+// console.log(fig);
 
 const figures = DATA.flatMap(question => question.answers.map(answer => answer.figure));
 // console.log(figures[0] + figures[2]);
@@ -270,10 +315,6 @@ for (let i = 0; i < DATA.length; i++) {
     console.log(answers[0].figure);
 }
 
-
-
-const total = figures.reduce((sum, figure) => sum + figure, 0);
-console.log(total);
 
 
 
@@ -290,6 +331,8 @@ const btnNext = document.getElementById("btn-next");
 const btnRestart = document.getElementById("btn-restart");
 const btnRestartCenter = document.getElementById("restartCenter");
 const summa = document.getElementById("summa");
+
+
 const ansNone = document.getElementById("answer--none");
 const inva = document.getElementsByClassName("answer--invalid");
 
@@ -297,12 +340,11 @@ const inva = document.getElementsByClassName("answer--invalid");
 const calculatorPrice = document.querySelector('.calculator__price');
 const calculatorDescription = document.querySelector('.calculator__description');
 const calculatorChoicewrap = document.querySelector('.calculator__choicewrap');
+const calculatorVariantstext = document.querySelector('.calculator__variantstext');
+const right = document.querySelector('.right');
 var style = document.createElement('style');
 
 
-
-
-// Select the calculator__price element
 
 const fontElement = calculatorPrice.querySelector('font[style="vertical-align: inherit;"]');
 if (fontElement) {
@@ -433,16 +475,18 @@ quiz.addEventListener("change", (event) => {
 
 
 
-
 function progress (){
     const stripblue = document.getElementById("stripblue");
     const perce = document.getElementById("perce");
            let width = 0;
+        //    totalNumber.classList.add("#summas");
 
 
            if (width == 100){
                 clearInterval(id);
                 stripblue.style.width = "0%";
+
+                // totalNumber.style.innerHTML = '#summa::before{ content: "+2000 руб за каждого привлеченного курьера";position: absolute;top: 135px;font-size: 17px;}';
 
             } else{
                 width++;
@@ -450,6 +494,8 @@ function progress (){
             }
 
                 
+
+
             console.log(stripblue);
             console.log(perce.innerHTML);
 
@@ -645,19 +691,155 @@ const renderResults = () => {
 
 renderResults
 
-// скопировать for и переделать его с number -1
 let totalNumber = 0;
 let previousTotal = 0;
+let globalI;
+let globalIThree;
+let globalIOneHalf;
+let glo;
+let gloThree;
+let globalThirty;
+let gloOneHalf;
+let gloThirty;
+
+    const inputElementSeven = document.querySelector('input[value="11"]');
+    const inputElementEight = document.querySelector('input[value="12"]');
+    const inputElementNine = document.querySelector('input[value="13"]');
+
+    const fig = DATA.flatMap(question => question.answers.map(answer => answer.figure));
+    const fig11 = DATA.flatMap(question => question.answers.map(answer => answer.figure));
+    const eleventhElementThirty = fig[11];
+    const eleventhElement11 = fig[10];
+    const eleventhElement12 = fig[12];
+    const eleventhElement13 = fig[13];
+
+
     for (let i = 0; i < inva.length; i++) {
+        
 
             let contentIn = inva[i].innerHTML;
             let number = parseInt(contentIn);
             totalNumber += number;
             console.log(totalNumber);
 
+            if(i === 1){
+                globalThirty = totalNumber * 3;
+                globalI = totalNumber * 2;
+                globalIOneHalf = totalNumber * 1.5;
+
+                console.log(globalThirty);
+
+            }
+
+            if(i === 2){
+                gloThirty = globalThirty - totalNumber;
+                glo = globalI - totalNumber;
+                gloOneHalf = globalIOneHalf - totalNumber;
+
+                console.log(gloThirty);
+
+            }
+
+            // if (inva[i].value === "5/2") {
+            //     globalI = totalNumber * 2;
+            //   }
+            
+
         
     }
 
+// const answer11 = DATA.find(answer => answer.id === "11");
+
+// if (answer11) {
+//     answer11.figure = globalI * 2;
+// }
+
+
+
+// const answer11 = DATA.find(answer => answer.id === "11");
+
+// const answer11 = DATA.answers.find(item => item.id === "11").figure = 10;
+// // if (answer11) {
+// //   answer11.figure = globalI;
+// // }
+
+// console.log(answer11);
+// answer11.figure = 0;
+
+
+
+
+
+
+
+const answerToUpdate = DATA.flatMap(question => question.answers).find(answer => answer.figure === eleventhElement11);
+const answerToUpdate13 = DATA.flatMap(question => question.answers).find(answer => answer.figure === eleventhElement12);
+const answerToUpdate12 = DATA.flatMap(question => question.answers).find(answer => answer.figure === eleventhElement13);
+
+const answerToUpdateThirty = DATA.flatMap(question => question.answers).find(answer => answer.figure === eleventhElementThirty);
+
+if (answerToUpdate) {
+    answerToUpdate.figure = glo;
+
+}
+
+// if (answerToUpdateThirty) {
+//     answerToUpdateThirty.figure = gloThirty;
+//   }
+
+if(percentage.innerHTML == " 3/6"){
+
+    answerToUpdate13.figure = gloOneHalf;
+
+
+}
+
+if (answerToUpdateThirty) {
+    answerToUpdateThirty.figure = gloThirty;
+  }
+
+
+
+
+
+console.log(fig[10]);
+console.log(answerToUpdate13);
+console.log(answerToUpdate12);
+console.log(eleventhElement12);
+console.log(inputElementSeven);
+console.log(eleventhElement11);
+
+
+console.log(eleventhElementThirty);
+console.log(answerToUpdateThirty);
+
+
+console.log(globalI);
+console.log(DATA);
+console.log(fig);
+
+// if (inputElementSeven && inputElementSeven.checked) {
+//     fig[10] = globalI;
+
+//     console.log(fig[10]);
+
+//         } else if (inputElementEight && inputElementEight.checked){
+//             const fig = DATA.flatMap(question => question.answers.map(answer => answer.figure));
+
+//             fig[11] = globalI;
+//             console.log(fig[11]);
+
+//         } else if (inputElementNine && inputElementNine.checked){
+//             answer11.figure = globalI;
+//             console.log(eleventhElement11);
+  
+//         } else {
+
+//         }
+
+
+        console.log(globalI);
+        
 
 
     // if(perce.innerHTML == "50%"){
@@ -697,16 +879,6 @@ let previousTotal = 0;
 // console.log(globalTotalNumberWhenPerceIs50);
 
 
-
-let myNumber;
-if (perce.innerHTML === "50%") {
-    myNumber = totalNumber;
-    globalTotalNumberWhenPerceIs50 = myNumber;
-}
-console.log(myNumber);
-
-
-
 // let globalTotalNumberWhenPerceIs50;
 
 // function myFunction() {
@@ -726,30 +898,29 @@ console.log(myNumber);
 
     console.log(totalNumber);
 
-    const inputElementSeven = document.querySelector('input[value="7"]');
-    const inputElementEight = document.querySelector('input[value="8"]');
 
 const getAnswers = (questionIndex) => DATA[questionIndex].answers
         // .map((answer) => `<span id= "answer--none" class=${getClassname(answer, questionIndex)}>${renderResults.totalNumber}</span>`)
         // .map((answer) => `<span id= "answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}${totalNumber}</span>`)
-        // .map((answer) => `<p><span id= "answer--none" class= ${getClassname(answer, questionIndex)}>${answer.figure} </span>${totalNumber}</p>`)
-        .map((answer) => {
-            if (inputElementSeven && inputElementSeven.checked) {
-                const result = previousTotal * 2;
-
-                previousTotal = totalNumber;
-                totalNumber = result;
-              return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${result}</p>`;
-            } else if (inputElementEight && inputElementEight.checked){
-                return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${totalNumber * 3}</p>`;
-
-            } else {
-              return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${totalNumber}</p>`;
-            }
-          })
-
-
-
+        .map((answer) => `<p><span id= "answer--none" class= ${getClassname(answer, questionIndex)}>${answer.figure} </span>${totalNumber}</p>`)
+        // .map((answer) => {
+            
+        //     if (inputElementSeven && inputElementSeven.checked) {
+        //         const myVariable = `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${globalI * 2}</p>`;
+        //         console.log(myVariable);
+        //         return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${globalI * 2}</p>`;
+                
+        //     } else if (inputElementEight && inputElementEight.checked){
+        //         return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${globalI * 3}</p>`;
+        //     } else if (inputElementNine && inputElementNine.checked){
+        //         return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${Math.floor(globalI * 1.5)}</p>`;
+                
+        //     } else {
+        //         return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${totalNumber}</p>`;
+        //     }
+            
+        // })
+        
         .join ("");
         
 
@@ -772,7 +943,7 @@ const getAnswers = (questionIndex) => DATA[questionIndex].answers
                             <div class="quiz-results-item__question">
                                 <ul class="quiz-results-item__answers">
                                     <li class="calculator__price d-mob-none">
-                                        <span id= "summa" class= "summa">${getAnswers(index) + " ₽"}</span>
+                                        <span id= "summa" class= "summa right">${getAnswers(index) + " ₽"}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -820,6 +991,28 @@ quiz.addEventListener("DOMContentLoaded", (event) => {
 
 
 
-
 renderQuestions(0);
 renderResults();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+    $('.right').css('font-size', '31px');
+
+    $('#summa p').css({
+        'font-weight': '700 !important',
+        'font-size': '140px !important'
+      });
+});
