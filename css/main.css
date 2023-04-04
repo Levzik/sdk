@@ -3051,14 +3051,16 @@ display: flex !important;
 .right::before{
     content: "+2000 руб за каждого привлеченного курьера";
     position: absolute;
-    top: 135px;
+    top: 119px;
+    font-size: 25px;
 
 }
 
-.right-hide{
+.right{
     display: none;
 }
 
-.right-block{
-    display: block;
+
+#summa{
+    font-size: 40px;
 }

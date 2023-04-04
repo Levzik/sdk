@@ -284,7 +284,7 @@ let DATA = [
             {
                 id: "16",
                 value: "Да",
-                figure: 2000,
+                figure: 0,
             },
             {
                 id: "17",
@@ -536,7 +536,6 @@ function progress (){
 
 
 
-
 quiz.addEventListener("click", (event) => {
     const ansNone = document.getElementById("answer--none");
 
@@ -545,7 +544,7 @@ quiz.addEventListener("click", (event) => {
         const nextQuestionIndex = Number(questions.dataset.currentStep) + 1;
         const restartQuestionIndex = Number(questions.dataset.currentStep) + 1;
         const nextQuestionCurrentLineIndex = Number(questions.dataset.currentLine) + 1;
-        
+        const inputElementSixteen = document.querySelector('input[value="16"]');
         renderResults();
 
         if (DATA.length === nextQuestionIndex) {
@@ -561,6 +560,22 @@ quiz.addEventListener("click", (event) => {
               '.calculator__price { top: 0 !important; } ' +
               '.calculator__description { margin-top: 85px !important; } ' +
             '}';
+
+            if (inputElementSixteen && inputElementSixteen.checked) {
+                style.innerHTML = '.calculator__choicewrap { justify-content: center !important; }' +
+                    '.right { display: block !important; }' +
+                    '@media (max-width: 992px) { ' +
+                    '.calculator__choicewrap { margin-top: 207px !important;} ' +
+                    '.right { width: 100%;}' +
+                    '.right::before {  top: -42px; width: 100%; left: 0px;}' +
+                    '.calculator__price { top: 65px !important; } ' +
+                    '.calculator__description { margin-top:149px !important; } ' +
+                    '}' +
+                    '@media (max-width: 792px) { ' +
+                    '.right::before { font-size: 21px; top: -57px;}' +
+                    '}';
+            }
+
 
             document.head.appendChild(style);
 
@@ -645,8 +660,8 @@ const renderResults = () => {
           if (!answer.correct && answer.id === localResults[questionIndex]) {
               classname = "answer--invalid";
               
+
             
-          
               // MY
               // answerNone = document.getElementById("summa");
               // if (answerNone.correct){
@@ -800,8 +815,6 @@ if (answerToUpdateThirty) {
 
 
 
-
-
 console.log(fig[10]);
 console.log(answerToUpdate13);
 console.log(answerToUpdate12);
@@ -943,7 +956,8 @@ const getAnswers = (questionIndex) => DATA[questionIndex].answers
                             <div class="quiz-results-item__question">
                                 <ul class="quiz-results-item__answers">
                                     <li class="calculator__price d-mob-none">
-                                        <span id= "summa" class= "summa right">${getAnswers(index) + " ₽"}</span>
+                                        <div class = "right"></div>
+                                        <span id= "summa" class= "summa">${getAnswers(index) + " ₽"}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -1002,17 +1016,3 @@ renderResults();
 
 
 
-
-
-
-
-
-
-$(document).ready(function(){
-    $('.right').css('font-size', '31px');
-
-    $('#summa p').css({
-        'font-weight': '700 !important',
-        'font-size': '140px !important'
-      });
-});
