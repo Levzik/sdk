@@ -124,18 +124,6 @@ $(document).ready(function(){
   });
 
 
-//   function goDoSomething(identifier){     
-//     $("data-id:"+$(identifier).data('id')+", data-option:"+$(identifier).data('option'));   
-//     $('#openModal').slideToggle(100);
-//     ('.questions__question').toggleClass('open', 100);
-            
-// }
-
-
-// $('button').click(function(){
-//     var data = $.parseJSON($(this).attr('data-button'));
-//     alert(data.option1)
-//   });
 
 jQuery(function () {
     jQuery("#modalVote").appendTo("body");
@@ -259,7 +247,6 @@ let DATA = [
 
 
     {
-        // Здесь надо умножать прошлое число на 2 и на 3 из прошлого числа которое получилось
         question: 'Готов ли ты привлекать друзей и знакомых на работу курьером?',
         answers: [
 
@@ -277,7 +264,6 @@ let DATA = [
         ]
     },
     {
-        // Здесь надо умножать прошлое число на 2 и на 3 из прошлого числа которое получилось
         question: 'За каждого пришедшего по рекомендации курьера заплатим + 2 000 руб. Подробные условия можно узнать у вашего менеджера',
         answers: [
 
@@ -297,22 +283,12 @@ let DATA = [
 
 ];
 
-
-
-// const fig = DATA.answers.find(item => item.id === "11").figure = 10;
-
-// console.log(fig);
-
 const figures = DATA.flatMap(question => question.answers.map(answer => answer.figure));
-// console.log(figures[0] + figures[2]);
-console.log(DATA.answers)
-
 
 
 for (let i = 0; i < DATA.length; i++) {
     let question = DATA[i].question;
     let answers = DATA[i].answers;
-    console.log(answers[0].figure);
 }
 
 
@@ -369,9 +345,6 @@ window.onload = function() {
 
 }
 
-
-
-// Loop through each element and add up the classList of each element
 let classes = {};
 for (let i = 0; i < inva.length; i++) {
   const classList = inva[i].classList;
@@ -383,16 +356,10 @@ for (let i = 0; i < inva.length; i++) {
   }
 }
 
-// Log the count of each class
-console.log(classes);
-
-
-            
-
 const renderQuestions = (index) => {
     renderIndicator(index);
     renderIndicatorLine(index);
-    // '%'
+
 
     questions.dataset.currentStep = index;
     questions.dataset.currentSum = index;
@@ -461,9 +428,6 @@ const renderIndicatorLine = (currentLine) => {
 const renderSum = (currentStep) => {
     indicator.innerHTML = `${currentStep}/${DATA.length}`;
 };
-console.log(renderIndicator)
-
-
 
 quiz.addEventListener("change", (event) => {
     if (event.target.classList.contains("answer-input")){
@@ -493,51 +457,12 @@ function progress (){
                 stripblue.style.width = perce.innerText;
             }
 
-                
-
-
-            console.log(stripblue);
-            console.log(perce.innerHTML);
-
-
-            
 }
-
-
-
-
-// function progress (){
-//     const stripblue = document.getElementById("stripblue");
-//     const perce = document.getElementById("perce");
-//            let width = 0;
-//            const id = setInterval(progressStatus,0);
-
-
-//             function progressStatus(){
-//                 if (width >= 100){
-//                     clearInterval(id);
-//                     stripblue.style.width = "100%";
-
-
-//                 } else{
-//                     width++;
-//                     stripblue.style.width = perce.innerText;
-//                 }
-
-//         console.log(stripblue);
-
-//             }
-// }
-
 
 
 // Конечный итог
 
-
-
-
 quiz.addEventListener("click", (event) => {
-    const ansNone = document.getElementById("answer--none");
 
 
     if (event.target.classList.contains("btn-next")) {
@@ -551,8 +476,6 @@ quiz.addEventListener("click", (event) => {
             // результаты
             
             stripblue.style.width = "100%";
-            // btnRestartCenter.classList.add("btn-restart--center");
-
 
             style.innerHTML = '.calculator__choicewrap { justify-content: center !important; }' + 
             '@media (max-width: 992px) { ' +
@@ -582,7 +505,6 @@ quiz.addEventListener("click", (event) => {
 
             questions.classList.add("questions--hidden");
             btnNext.classList.add("btn-next--hidden");
-            // ТУТ
             renderResults();
             renderQuestions(nextQuestionCurrentLineIndex);
 
@@ -614,9 +536,6 @@ quiz.addEventListener("click", (event) => {
 
         results.innerHTML = ""; 
 
-        console.log(results);
-
-
         questions.classList.remove("questions--hidden");
         indicator.classList.remove("indicator--hidden");
         results.classList.remove("results--visible");
@@ -638,15 +557,6 @@ quiz.addEventListener("click", (event) => {
 });
 
 
-// ВЫВОД ВСЕХ ТРЕХ ОТВЕТОВ
-//   const getAnswers = (questionIndex) => 
-//   // .map((answer) => `<span id= "answer--none" class=${getClassname(answer, questionIndex)}>${renderResults.totalNumber}</span>`)
-//   // .map((answer) => `<span id= "answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}${totalNumber}</span>`)
-//   ((answer) => `<span id= "answer--none" class= ${getClassname(answer, questionIndex)}>${answer.figure} ${totalNumber}</span>`)
-  
-
-
-
 const renderResults = () => {
     let content = "";
 
@@ -661,16 +571,6 @@ const renderResults = () => {
               classname = "answer--invalid";
               
 
-            
-              // MY
-              // answerNone = document.getElementById("summa");
-              // if (answerNone.correct){
-                  //     classname = "moo";
-                  
-                  // }
-                  
-                  
-
                   answerNone = document.getElementById("summa");
                   greenTxt = document.getElementsByClassName("greentxt");
                   const mySet = new Set([answerNone]);
@@ -678,18 +578,7 @@ const renderResults = () => {
                   if (greenTxt.length > 0) { 
                       mySet.forEach(elem => elem.classList.add("greentxt"));
                     }
-                    
-                    console.log(answerNone)
-                    
-                    
-                    
-                    // const quizResults = document.getElementById('results');
-                    // for (let i = 0; i < quizResults.length; i++) {
-                        // quizResults[i].remove();
-                        // }
-                        
-                        
-                        
+
                         
                     } else if(answer.correct) {
                         classname= "answer--valid";
@@ -707,22 +596,16 @@ const renderResults = () => {
 renderResults
 
 let totalNumber = 0;
-let previousTotal = 0;
 let globalI;
-let globalIThree;
 let globalIOneHalf;
 let glo;
-let gloThree;
 let globalThirty;
 let gloOneHalf;
 let gloThirty;
 
     const inputElementSeven = document.querySelector('input[value="11"]');
-    const inputElementEight = document.querySelector('input[value="12"]');
-    const inputElementNine = document.querySelector('input[value="13"]');
 
     const fig = DATA.flatMap(question => question.answers.map(answer => answer.figure));
-    const fig11 = DATA.flatMap(question => question.answers.map(answer => answer.figure));
     const eleventhElementThirty = fig[11];
     const eleventhElement11 = fig[10];
     const eleventhElement12 = fig[12];
@@ -735,14 +618,12 @@ let gloThirty;
             let contentIn = inva[i].innerHTML;
             let number = parseInt(contentIn);
             totalNumber += number;
-            console.log(totalNumber);
 
             if(i === 1){
                 globalThirty = totalNumber * 3;
                 globalI = totalNumber * 2;
                 globalIOneHalf = totalNumber * 1.5;
 
-                console.log(globalThirty);
 
             }
 
@@ -751,40 +632,8 @@ let gloThirty;
                 glo = globalI - totalNumber;
                 gloOneHalf = globalIOneHalf - totalNumber;
 
-                console.log(gloThirty);
-
             }
-
-            // if (inva[i].value === "5/2") {
-            //     globalI = totalNumber * 2;
-            //   }
-            
-
-        
     }
-
-// const answer11 = DATA.find(answer => answer.id === "11");
-
-// if (answer11) {
-//     answer11.figure = globalI * 2;
-// }
-
-
-
-// const answer11 = DATA.find(answer => answer.id === "11");
-
-// const answer11 = DATA.answers.find(item => item.id === "11").figure = 10;
-// // if (answer11) {
-// //   answer11.figure = globalI;
-// // }
-
-// console.log(answer11);
-// answer11.figure = 0;
-
-
-
-
-
 
 
 const answerToUpdate = DATA.flatMap(question => question.answers).find(answer => answer.figure === eleventhElement11);
@@ -798,10 +647,6 @@ if (answerToUpdate) {
 
 }
 
-// if (answerToUpdateThirty) {
-//     answerToUpdateThirty.figure = gloThirty;
-//   }
-
 if(percentage.innerHTML == " 3/6"){
 
     answerToUpdate13.figure = gloOneHalf;
@@ -814,126 +659,8 @@ if (answerToUpdateThirty) {
   }
 
 
-
-console.log(fig[10]);
-console.log(answerToUpdate13);
-console.log(answerToUpdate12);
-console.log(eleventhElement12);
-console.log(inputElementSeven);
-console.log(eleventhElement11);
-
-
-console.log(eleventhElementThirty);
-console.log(answerToUpdateThirty);
-
-
-console.log(globalI);
-console.log(DATA);
-console.log(fig);
-
-// if (inputElementSeven && inputElementSeven.checked) {
-//     fig[10] = globalI;
-
-//     console.log(fig[10]);
-
-//         } else if (inputElementEight && inputElementEight.checked){
-//             const fig = DATA.flatMap(question => question.answers.map(answer => answer.figure));
-
-//             fig[11] = globalI;
-//             console.log(fig[11]);
-
-//         } else if (inputElementNine && inputElementNine.checked){
-//             answer11.figure = globalI;
-//             console.log(eleventhElement11);
-  
-//         } else {
-
-//         }
-
-
-        console.log(globalI);
-        
-
-
-    // if(perce.innerHTML == "50%"){
-    //     let totalNumberBefore = totalNumber;
-    //     console.log(totalNumberBefore);
-
-    // }
-    // console.log(totalNumberBefore);
-
-
-    // let totalNumberWhenPerceIs50;
-
-    // if (perce.innerHTML === "50%") {
-    //   totalNumberWhenPerceIs50 = totalNumber;
-    // }
-    
-    // console.log(totalNumberWhenPerceIs50);
-
-    
-    // let globalTotalNumberWhenPerceIs50;
-
-    // if (perce.innerHTML === "50%") {
-    //   globalTotalNumberWhenPerceIs50 = totalNumber;
-    // }
-    
-    // console.log(globalTotalNumberWhenPerceIs50);
-
-
-
-//     let globalTotalNumberWhenPerceIs50;
-
-// function calculateGlobalTotalNumberWhenPerceIs50() {
-//   if (perce.innerHTML === "50%") {
-//     globalTotalNumberWhenPerceIs50 = totalNumber;
-//   }
-// }
-// console.log(globalTotalNumberWhenPerceIs50);
-
-
-// let globalTotalNumberWhenPerceIs50;
-
-// function myFunction() {
-//     let myNumber;
-//     if (perce.innerHTML === "50%") {
-//         myNumber = totalNumber;
-//         globalTotalNumberWhenPerceIs50 = myNumber;
-//     }
-// }
-
-// myFunction();
-// console.log(globalTotalNumberWhenPerceIs50);
-
-
-
-
-
-    console.log(totalNumber);
-
-
 const getAnswers = (questionIndex) => DATA[questionIndex].answers
-        // .map((answer) => `<span id= "answer--none" class=${getClassname(answer, questionIndex)}>${renderResults.totalNumber}</span>`)
-        // .map((answer) => `<span id= "answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}${totalNumber}</span>`)
         .map((answer) => `<p><span id= "answer--none" class= ${getClassname(answer, questionIndex)}>${answer.figure} </span>${totalNumber}</p>`)
-        // .map((answer) => {
-            
-        //     if (inputElementSeven && inputElementSeven.checked) {
-        //         const myVariable = `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${globalI * 2}</p>`;
-        //         console.log(myVariable);
-        //         return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${globalI * 2}</p>`;
-                
-        //     } else if (inputElementEight && inputElementEight.checked){
-        //         return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${globalI * 3}</p>`;
-        //     } else if (inputElementNine && inputElementNine.checked){
-        //         return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${Math.floor(globalI * 1.5)}</p>`;
-                
-        //     } else {
-        //         return `<p><span id="answer--none" class=${getClassname(answer, questionIndex)}>${answer.figure}</span>${totalNumber}</p>`;
-        //     }
-            
-        // })
-        
         .join ("");
         
 
@@ -979,18 +706,7 @@ const getAnswers = (questionIndex) => DATA[questionIndex].answers
         
     });
 
-
-
-//     <div class="quiz-results-item">
-//     <div class="quiz-results-item__question">
-//         <ul class="quiz-results-item__answers">
-//             <li class="calculator__price d-mob-none">${getAnswers(index)}</li>
-//         </ul>
-//     </div>
-// </div>
-
     results.innerHTML = content;
-    console.log(totalNumber);
 
 };
 
