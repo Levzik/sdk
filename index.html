@@ -120,11 +120,10 @@ rel="stylesheet"
     </div>
     <div class="col-xl-8 request__description">
                                 
-    <form method="get">
-        <input type="tel" id="phone_1" 
+    <form action="mail.php" method="POST">
+        <input type="tel" name="user_phone" id="phone_1" 
             class="phone_1"
             placeholder="Ваш телефон"
-            name="phone"
         />
         <button type="submit" class="request__send">
             Отправить заявку
@@ -241,8 +240,8 @@ rel="stylesheet"
                 </p>
             </div>
             <div class="col-12 request__description">
-                <form method="get">
-                    <input type="tel" placeholder="Ваш телефон">
+                <form action="mail.php" method="POST">
+                    <input type="tel" name="user_phone" placeholder="Ваш телефон">
                     <button class="request__send">
                         Отправить заявку
                     </button>
@@ -299,8 +298,8 @@ rel="stylesheet"
                                     </div>
                                     <div class="col-xl-8 request__description">
                                                                 
-                                    <form method="get">
-                                        <input type="tel" placeholder="Ваш телефон">
+                                    <form action="mail.php" method="POST">
+                                        <input type="tel" name="user_phone" placeholder="Ваш телефон">
                                         <button class="request__send">
                                             Отправить заявку
                                         </button>
@@ -357,11 +356,10 @@ rel="stylesheet"
                 </div>
                 <div class="col-xl-8 request__description">
                                                 
-                    <form method="get">
-                        <input type="tel" id="phone_2" 
+                    <form action="mail.php" method="POST">
+                        <input type="tel" name="user_phone" id="phone_2" 
                                 class="phone_2"
                                 placeholder="Ваш телефон"
-                                name="phone"
                             />
                             <button type="submit" class="request__send">
                                 Отправить
@@ -673,15 +671,14 @@ rel="stylesheet"
                         </p>
                     </div>
                     <div class="col-xl-5 request__description">
-                        <form method="get">
+                        <form action="mail.php" method="POST">
 
 
                             
 
-                            <input type="tel" id="phone_3" 
+                            <input type="tel" name="user_phone" id="phone_3" 
                                 class="phone_3"
                                 placeholder="Ваш телефон"
-                                name="phone"
                             />
                             <button type="submit" class="request__send">
                                 Отправить заявку
@@ -763,11 +760,10 @@ rel="stylesheet"
                                         </div>
                                         <div class="col-xl-8 request__description">
                                                                         
-                                            <form method="get">
-                                                <input type="tel" id="phone_4" 
+                                            <form action="mail.php" method="POST">
+                                                <input type="tel" name="user_phone" id="phone_4" 
                                                     class="phone_4"
                                                     placeholder="Ваш телефон"
-                                                    name="phone"
                                                 />
                                                 <button type="submit" class="request__send">
                                                     Отправить заявку
@@ -842,11 +838,10 @@ rel="stylesheet"
                                         </div>
                                         <div class="col-xl-8 request__description">
                                                                         
-                                            <form method="get">
-                                                <input type="tel" id="phone_5" 
+                                            <form action="mail.php" method="POST">
+                                                <input type="tel" name="user_phone" id="phone_5" 
                                                 class="phone_5"
                                                 placeholder="Ваш телефон"
-                                                name="phone"
                                             />
                                             <button type="submit" class="request__send">
                                                 Отправить заявку
@@ -921,11 +916,10 @@ rel="stylesheet"
                                 </div>
                                 <div class="col-xl-8 request__description">
                                                                 
-                                    <form method="get">
-                                        <input type="tel" id="phone_6" 
+                                    <form action="mail.php" method="POST">
+                                        <input type="tel" name="user_phone" id="phone_6" 
                                         class="phone_6"
                                         placeholder="Ваш телефон"
-                                        name="phone"
                                     />
                                     <button type="submit" class="request__send">
                                         Отправить заявку
@@ -1807,13 +1801,13 @@ rel="stylesheet"
             <div class="col-xl-6 footer__tal">
                 <ul class="footer__navigation gray">
                     <li>
-                        <a href="#">Юридическая информация: </a>
+                        <a href="politic.html#ur-inf">Юридическая информация: </a>
                     </li>
                     <li>
                         <a href="politic.html">Политика конфиденциальности </a>
                     </li>
                     <li>
-                        <a href="#">Пользовательское соглашение </a>
+                        <a href="politic.html">Пользовательское соглашение </a>
                     </li>
                     <li><a href="bonus.html">«Welcome-Бонус»</a></li>
                 </ul>
@@ -1866,12 +1860,14 @@ src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
 
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script src="js/wow.min.js"></script>
     <script>
     new WOW().init();
     </script>
+    
 <script src="js/main.js"></script>
 <script>
 

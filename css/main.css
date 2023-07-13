@@ -194,6 +194,7 @@ body {
 
 .modal-wrap .request__send:hover{
     background: #fff;
+    
 }
 
 .request__send:hover {
@@ -2619,10 +2620,16 @@ flex-wrap: wrap;
 }
 
 
+
+
+
+
+
 .request__send:hover{
-    background: #4E8DF2;
+    background: #ffbf00;
     color: #fff;
     transition: all 0.5s ease;
+    border: 2px solid #fff;
 }
 
 .optwar .radio__wrap input[type="checkbox"]:checked::before{
@@ -3301,3 +3308,130 @@ color:#387FF2;
 }
 
 
+button.request__send{
+    overflow: hidden;
+    position: relative;
+}
+
+
+.section-main .btn-primary{
+    overflow: hidden;
+    position: relative;
+}
+
+.section-main .btn-primary::before{
+    content: "";
+    /* background: #FFDE7A; */
+    background: #387FF2;
+    animation: 3s requestsend-animate infinite ease-in-out;
+    position: absolute;
+    top: 0;
+    width: 29%;
+    left: -20px;
+    border-radius: 85px 110px 227em 19em;
+}
+
+
+
+
+.staycourier button.request__send::before{
+    content: "";
+    /* background: #FFDE7A; */
+    background: #FFBF00;
+    animation: 4s requestsend-animate infinite ease-in-out;
+    position: absolute;
+    top: 0;
+    width: 29%;
+    left: -20px;
+    border-radius: 85px 110px 227em 19em;
+    
+}
+
+
+
+@keyframes requestsend-animate {
+    0%{
+        height: 0px;
+        width: 0%;
+
+    }
+    /* 14.2% {
+        height: 15px;
+      
+
+    }
+
+    28.4% {
+       height: 30px;
+      
+
+    }
+    42.6% {
+       height: 45px;
+      
+
+    } */
+    56.8% {
+        height: 60px;
+        width: 29%;
+     
+
+
+    }
+    /* 71% {
+       height: 45px;
+      
+
+    }
+    85.2% {
+       height: 30px;
+      
+
+    } */
+    100% {
+       height: 0px;
+       width: 0%;
+
+    }
+    
+}
+
+
+.option .modal-content{
+    background-color: #fff;
+    color: #000;
+}
+
+
+.option .modal-content .request__description input[type="tel"]{
+ 
+    border: 3px solid #000;
+    color: #000;
+}
+
+.option .modal-content .request__description input[type="tel"]::placeholder{
+color: #000;
+
+}
+
+.optwar .request__radio label.request__checkbox{
+    color: #000;
+}
+
+
+
+.optwar input[type="checkbox"]{
+    color: #000;
+}
+
+
+.optwar .modal-content .request__send{
+    border: 3px solid #000;
+
+}
+
+
+.optwar .modal-header span{
+    border-radius: 94px;
+    color: #FFBF00;
+}
