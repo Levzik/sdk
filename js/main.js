@@ -1,4 +1,38 @@
-// alert( document.cookie );
+// // alert( document.cookie );
+// function checkParams() {
+
+//     var phone = $('#phone_1').val();
+  
+
+     
+//     if(phone.length != 0) {
+//         $('#request__send-sub').removeAttr('disabled');
+//     } else {
+//         $('#request__send-sub').attr('disabled', 'disabled');
+//     }
+// }
+
+// $('#checkbox-id').prop('checked', true);
+$(document).ready(function() {
+
+	//E-mail Ajax Send
+	$("form").submit(function() { //Change
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "mail.php", //Change
+			data: th.serialize()
+		}).done(function() {
+			alert("Thank you!");
+			setTimeout(function() {
+				// Done Functions
+				th.trigger("reset");
+			}, 1000);
+		});
+		return false;
+	});
+
+});
 
 
 $(document).ready(function(){
@@ -8,6 +42,7 @@ $(document).ready(function(){
     $("#phone_4").mask("+7(999) 999-99-99");
     $("#phone_5").mask("+7(999) 999-99-99");
     $("#phone_6").mask("+7(999) 999-99-99");
+    $("#phone_7").mask("+7(999) 999-99-99");
 
 
 
@@ -122,6 +157,177 @@ $(document).ready(function(){
     
 
   });
+
+
+// кнопка 1
+  document.addEventListener("DOMContentLoaded", function() {
+    // Находим элементы чекбокса, поля ввода и кнопки
+    const checkbox = document.getElementById("check");
+    const phoneInput = document.getElementById("phone_1");
+    const submitButton = document.getElementById("request__send-sub");
+  
+    // Создаем функцию для обработки изменений
+    function handleInputChange() {
+      // Проверяем, является ли чекбокс выбранным и есть ли значение в поле ввода
+      if (checkbox.checked && phoneInput.value !== "") {
+        // Если оба условия выполняются, включаем кнопку
+        submitButton.disabled = false;
+      } else {
+        // В противном случае выключаем кнопку
+        submitButton.disabled = true;
+      }
+    }
+  
+    // Добавляем обработчики событий на изменение значения чекбокса и ввода номера телефона
+    checkbox.addEventListener("change", handleInputChange);
+    phoneInput.addEventListener("input", handleInputChange);
+  });
+
+
+
+// кнопка 2
+  document.addEventListener("DOMContentLoaded", function() {
+// Находим элементы чекбоксов, поля ввода и кнопку
+const phoneTwo = document.getElementById("phone_2");
+const checkboxTwo = document.getElementById("check_2");
+const checkboxThree = document.getElementById("check_3");
+const submitButtonTwo = document.getElementById("request__send-sub_two");
+
+// Создаем функцию для обработки изменений
+function handleInputChange() {
+  // Проверяем, являются ли оба чекбокса выбранными и есть ли значение в поле ввода
+  if (checkboxTwo.checked && checkboxThree.checked && phoneTwo.value !== "") {
+    // Если все условия выполняются, включаем кнопку
+    submitButtonTwo.disabled = false;
+  } else {
+    // В противном случае выключаем кнопку
+    submitButtonTwo.disabled = true;
+  }
+}
+
+// Добавляем обработчики событий на изменение значения чекбоксов и ввода номера телефона
+checkboxTwo.addEventListener("change", handleInputChange);
+checkboxThree.addEventListener("change", handleInputChange);
+phoneTwo.addEventListener("input", handleInputChange);
+
+});
+
+
+
+// кнопка 3
+document.addEventListener("DOMContentLoaded", function() {
+    // Находим элементы чекбокса, поля ввода и кнопки
+    const phoneThree = document.getElementById("phone_3");
+    const checkboxFour = document.getElementById("check_4");
+    const submitButtonThree = document.getElementById("request__send-sub_three");
+  
+    // Создаем функцию для обработки изменений
+    function handleInputChange() {
+      // Проверяем, является ли чекбокс выбранным и есть ли значение в поле ввода
+      if (checkboxFour.checked && phoneThree.value !== "") {
+        // Если оба условия выполняются, включаем кнопку
+        submitButtonThree.disabled = false;
+      } else {
+        // В противном случае выключаем кнопку
+        submitButtonThree.disabled = true;
+      }
+    }
+  
+    // Добавляем обработчики событий на изменение значения чекбокса и ввода номера телефона
+    checkboxFour.addEventListener("change", handleInputChange);
+    phoneThree.addEventListener("input", handleInputChange);
+  });
+
+
+
+
+
+// кнопка 4
+document.addEventListener("DOMContentLoaded", function() {
+    // Находим элементы чекбоксов, поля ввода и кнопку
+    const phoneFive = document.getElementById("phone_5");
+    const checkboxFive = document.getElementById("check_5");
+    const checkboxSix = document.getElementById("check_6");
+    const submitButtonFour = document.getElementById("request__send-sub_four");
+    
+    // Создаем функцию для обработки изменений
+    function handleInputChange() {
+      // Проверяем, являются ли оба чекбокса выбранными и есть ли значение в поле ввода
+      if (checkboxFive.checked && checkboxSix.checked && phoneFive.value !== "") {
+        // Если все условия выполняются, включаем кнопку
+        submitButtonFour.disabled = false;
+      } else {
+        // В противном случае выключаем кнопку
+        submitButtonFour.disabled = true;
+      }
+    }
+    
+    // Добавляем обработчики событий на изменение значения чекбоксов и ввода номера телефона
+    checkboxFive.addEventListener("change", handleInputChange);
+    checkboxSix.addEventListener("change", handleInputChange);
+    phoneFive.addEventListener("input", handleInputChange);
+    
+    });
+
+
+    // кнопка 5
+  document.addEventListener("DOMContentLoaded", function() {
+    // Находим элементы чекбоксов, поля ввода и кнопку
+    const phoneFive = document.getElementById("phone_6");
+    const checkboxSeven = document.getElementById("check_7");
+    const checkboxEight = document.getElementById("check_8");
+    const submitButtonFive = document.getElementById("request__send-sub_five");
+    
+    // Создаем функцию для обработки изменений
+    function handleInputChange() {
+      // Проверяем, являются ли оба чекбокса выбранными и есть ли значение в поле ввода
+      if (checkboxSeven.checked && checkboxEight.checked && phoneFive.value !== "") {
+        // Если все условия выполняются, включаем кнопку
+        submitButtonFive.disabled = false;
+      } else {
+        // В противном случае выключаем кнопку
+        submitButtonFive.disabled = true;
+      }
+    }
+    
+    // Добавляем обработчики событий на изменение значения чекбоксов и ввода номера телефона
+    checkboxSeven.addEventListener("change", handleInputChange);
+    checkboxEight.addEventListener("change", handleInputChange);
+    phoneFive.addEventListener("input", handleInputChange);
+    
+    });
+
+
+// кнопка 6
+  document.addEventListener("DOMContentLoaded", function() {
+    // Находим элементы чекбоксов, поля ввода и кнопку
+    const phoneSix = document.getElementById("phone_7");
+    const checkboxNine = document.getElementById("check_9");
+    const checkboxTen = document.getElementById("check_10");
+    const submitButtonSix = document.getElementById("request__send-sub_six");
+    
+    // Создаем функцию для обработки изменений
+    function handleInputChange() {
+      // Проверяем, являются ли оба чекбокса выбранными и есть ли значение в поле ввода
+      if (checkboxNine.checked && checkboxTen.checked && phoneSix.value !== "") {
+        // Если все условия выполняются, включаем кнопку
+        submitButtonSix.disabled = false;
+      } else {
+        // В противном случае выключаем кнопку
+        submitButtonSix.disabled = true;
+      }
+    }
+    
+    // Добавляем обработчики событий на изменение значения чекбоксов и ввода номера телефона
+    checkboxNine.addEventListener("change", handleInputChange);
+    checkboxTen.addEventListener("change", handleInputChange);
+    phoneSix.addEventListener("input", handleInputChange);
+    
+    });
+
+
+
+
 
 
 

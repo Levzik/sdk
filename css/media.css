@@ -1951,3 +1951,13 @@
         margin-top: 40px;
     }
 }
+
+@media screen and (max-width: 437px) {
+    .reviews__audiowrap audio {
+        width: 225px;
+    }
+
+    .reviews__cardtext p {
+        padding-right: 20px;
+    }
+}

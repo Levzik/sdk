@@ -1011,9 +1011,7 @@ input[type="checkbox"]:checked::before {
     color: #a8a8a8;
 }
 
-.reviews__cardtext {
-    margin-top: 19px;
-}
+
 
 .reviews__cardtext p {
     font-weight: 400;
@@ -1073,7 +1071,7 @@ ul.slick-dots {
     position: absolute;
     display: flex;
     left: 42%;
-    top: 115%;
+    top: 114.5%;
 }
 
 .slick-prev,
@@ -3434,4 +3432,12 @@ color: #000;
 .optwar .modal-header span{
     border-radius: 94px;
     color: #FFBF00;
+}
+
+
+
+
+.whatsaying .reviews__cardwrap {
+    display: flex !important;
+    flex-wrap: wrap;
 }
